@@ -1,0 +1,6 @@
+<h5>{{ likes }}</h5>
+{% if is_liked %}
+    <button hx-post="{{ url_for('remove_like', post_id=post_id) }}" hx-target="#likeSection">Dislike</button>
+{% else %}
+    <button hx-post="{{ url_for('add_like', post_id=post_id) }}" hx-target="#likeSection">like</button>
+{% endif %}

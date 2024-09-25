@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h3>{{ post.text }}</h3>
+    <div id="likeSection">
+        <h5>{{ likes }}</h5>
+        {% if is_liked %}
+            <button hx-post="{{ url_for('remove_like', post_id=post.id) }}" hx-target="#likeSection">Dislike</button>
+        {% else %}
+            <button hx-post="{{ url_for('add_like', post_id=post.id) }}" hx-target="#likeSection">like</button>
+        {% endif %}
+    </div>
+    <input type="text" name="text">
+    <button  hx-post="{{ url_for('add_comment', id=post.id) }}" hx-include="[name='text']" hx-target="#comments" hx-trigger="click">Send</button>
+    <div id="comments">
+        {% for c in comments %}
+            <p>{{ c.text }} <button hx-delete="{{ url_for('delete_comment', id=c.id) }}" hx-target="#comments" hx-trigger="click">Delete</button></p>
+        {% endfor %}
+    </div>
+{% endblock %}

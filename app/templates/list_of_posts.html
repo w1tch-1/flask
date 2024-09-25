@@ -1,0 +1,4 @@
+{% for post in posts %}
+    <h3>{{ post.text }} <a href="{{ url_for('post_detail', id=post.id) }}">View</a></h3>
+    <img src="{{ post.img }}">
+{% endfor %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <button hx-trigger="click" hx-get="/htmx-ajax" hx-target="#res">Click</button>
+    <div id="res">
+
+    </div>
+
+    <input id="name" name="username">
+    <input name="password">
+    <button hx-post="/login" hx-include="#name, [name=password]">Send</button>
+
+    <form hx-post="/login">
+        <input name="name">
+        <input name="password">
+        <input type="submit">
+    </form>
+{% endblock %}

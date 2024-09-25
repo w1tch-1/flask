@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form method="post">
+        {{ logins.hidden_tag() }}
+
+        {{ logins.username.label }}
+        {{ logins.username(size=20) }}
+
+        {{ logins.password.label }}
+        {{ logins.password(size=20) }}
+
+        {{ logins.submit }}
+    </form>
+{% endblock %}

@@ -1,0 +1,3 @@
+{% for c in comments %}
+    <p>{{ c.text }} <button hx-delete="{{ url_for('delete_comment', id=c.id) }}" hx-target="#comments">Delete</button></p>
+{% endfor %}

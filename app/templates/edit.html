@@ -1,0 +1,3 @@
+<input type="text" name="new-username" value="{{ user.username }}">
+<button hx-get="{{ url_for('profile') }}" hx-post="{{ url_for('new_name') }}" hx-include="[name='new-username']" hx-target="#modalBody">Save</button>
+<button hx-get="{{ url_for('profile') }}" hx-target="#modalBody">Cancel</button>

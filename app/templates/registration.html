@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form method="post">
+        {{ forms.hidden_tag() }}
+
+        {{ forms.username.label }}
+        {{ forms.username(size=20) }}
+
+        {{ forms.email.label }}
+        {{ forms.email(size=20) }}
+
+        {{ forms.password.label }}
+        {{ forms.password(size=20) }}
+
+        {{ forms.repeat_password.label }}
+        {{ forms.repeat_password(size=20) }}
+
+        {{ forms.submit(size=20) }}
+    </form>
+{% endblock %}
